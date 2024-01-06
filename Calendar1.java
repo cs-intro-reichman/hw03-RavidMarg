@@ -20,7 +20,9 @@ public class Calendar1 {
 		while (year < 2000 ) {
 			if (dayOfWeek == 1){
 				optional_day_of_the_week_to_print = " Sunday";
-				sunday_counter++;
+				if (dayOfMonth == 1) {
+					sunday_counter++;
+				}
 			}
 			else {
 				optional_day_of_the_week_to_print = "";
