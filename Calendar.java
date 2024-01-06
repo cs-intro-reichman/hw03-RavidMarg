@@ -17,23 +17,15 @@ public class Calendar {
 	    // Prints each date dd/mm/given_year in a separate line. If the day is a Sunday, prints "Sunday".
 		int target_year = Integer.parseInt(args[0]);
 		String optional_day_of_the_week_to_print = "";
-	 	while (year < target_year ) {
-			if (dayOfWeek == 1){
-				optional_day_of_the_week_to_print = " Sunday";
+	 	while (year <= target_year ) {
+			if (year == target_year) {
+				if (dayOfWeek == 1) {
+					optional_day_of_the_week_to_print = " Sunday";
+				} else {
+					optional_day_of_the_week_to_print = "";
+				}
+				System.out.println(dayOfMonth + "/" + month + "/" + year + optional_day_of_the_week_to_print);
 			}
-			else {
-				optional_day_of_the_week_to_print = "";
-			}
-			advance();
-        }
-		while (year < (target_year + 1 ) ) {
-			if (dayOfWeek == 1){
-				optional_day_of_the_week_to_print = " Sunday";
-			}
-			else {
-				optional_day_of_the_week_to_print = "";
-			}
-			System.out.println(month + "/" + dayOfMonth + "/" + year + optional_day_of_the_week_to_print);
 			advance();
 		}
 
@@ -66,7 +58,7 @@ public class Calendar {
 		 
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
-		if (((year % 4 == 0) && ( ! (year % 100 == 0 ))) || (year % 400 == 0 ) ){
+		if (((year % 4 == 0) && ( year % 100 != 0 )) || (year % 400 == 0 ) ){
 			return true;
 		}
 		else {
